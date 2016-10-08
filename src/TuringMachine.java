@@ -12,6 +12,7 @@ public class TuringMachine{
     public String blankSymbol;
     public State startState;
     public List<State> acceptedStates = new ArrayList<State>();
+    public List<String> tape = new ArrayList<String>();
 
     public void addTransition(Transition t){
 		transitions.add(t);
@@ -34,6 +35,10 @@ public class TuringMachine{
     }
 
     public void setInput(String input){
+        for (int iii = 0; iii < input.length(); iii++){
+            // Todo: verify that input belongs to input alphabet
+            tape.add(String.valueOf(input.charAt(iii)));
+        }
 
     }
 
