@@ -281,34 +281,27 @@ public class TuringMachineParser extends Parser {
 		enterRule(_localctx, 4, RULE_inputalphabet);
 		int _la;
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(48); 
 			_errHandler.sync(this);
-			_alt = 1;
+			_la = _input.LA(1);
 			do {
-				switch (_alt) {
-				case 1:
-					{
-					{
-					setState(47);
-					_la = _input.LA(1);
-					if ( !(_la==DIGIT || _la==SYMBOL) ) {
-					_errHandler.recoverInline(this);
-					} else {
-						consume();
-					}
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
+				{
+				{
+				setState(47);
+				_la = _input.LA(1);
+				if ( !(_la==DIGIT || _la==SYMBOL) ) {
+				_errHandler.recoverInline(this);
+				} else {
+					consume();
+				}
+				}
 				}
 				setState(50); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				_la = _input.LA(1);
+			} while ( _la==DIGIT || _la==SYMBOL );
 			}
 		}
 		catch (RecognitionException re) {
@@ -323,11 +316,13 @@ public class TuringMachineParser extends Parser {
 	}
 
 	public static class TapealphabetContext extends ParserRuleContext {
-		public List<InputalphabetContext> inputalphabet() {
-			return getRuleContexts(InputalphabetContext.class);
+		public List<TerminalNode> SYMBOL() { return getTokens(TuringMachineParser.SYMBOL); }
+		public TerminalNode SYMBOL(int i) {
+			return getToken(TuringMachineParser.SYMBOL, i);
 		}
-		public InputalphabetContext inputalphabet(int i) {
-			return getRuleContext(InputalphabetContext.class,i);
+		public List<TerminalNode> DIGIT() { return getTokens(TuringMachineParser.DIGIT); }
+		public TerminalNode DIGIT(int i) {
+			return getToken(TuringMachineParser.DIGIT, i);
 		}
 		public List<TerminalNode> BLANK() { return getTokens(TuringMachineParser.BLANK); }
 		public TerminalNode BLANK(int i) {
@@ -354,31 +349,22 @@ public class TuringMachineParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(54); 
+			setState(53); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(54);
-				switch (_input.LA(1)) {
-				case DIGIT:
-				case SYMBOL:
-					{
-					setState(52);
-					inputalphabet();
-					}
-					break;
-				case BLANK:
-					{
-					setState(53);
-					match(BLANK);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
+				{
+				setState(52);
+				_la = _input.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DIGIT) | (1L << SYMBOL) | (1L << BLANK))) != 0)) ) {
+				_errHandler.recoverInline(this);
+				} else {
+					consume();
 				}
 				}
-				setState(56); 
+				}
+				setState(55); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DIGIT) | (1L << SYMBOL) | (1L << BLANK))) != 0) );
@@ -419,7 +405,7 @@ public class TuringMachineParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(57);
 			state();
 			}
 		}
@@ -458,7 +444,7 @@ public class TuringMachineParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(60);
+			setState(59);
 			state();
 			}
 		}
@@ -507,23 +493,23 @@ public class TuringMachineParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(61);
+			state();
 			setState(62);
-			state();
+			match(T__4);
 			setState(63);
-			match(T__4);
+			tapealphabet();
 			setState(64);
-			tapealphabet();
-			setState(65);
 			match(T__5);
-			setState(66);
+			setState(65);
 			state();
+			setState(66);
+			match(T__4);
 			setState(67);
-			match(T__4);
-			setState(68);
 			tapealphabet();
-			setState(69);
+			setState(68);
 			match(T__4);
-			setState(70);
+			setState(69);
 			match(DIRECTION);
 			}
 		}
@@ -539,25 +525,24 @@ public class TuringMachineParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\rK\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\rJ\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\6\2\23\n\2\r\2\16\2"+
 		"\24\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\6\2\37\n\2\r\2\16\2 \3\2\3\2\3\2\3"+
 		"\2\3\2\7\2(\n\2\f\2\16\2+\13\2\3\2\3\2\3\3\3\3\3\3\3\4\6\4\63\n\4\r\4"+
-		"\16\4\64\3\5\3\5\6\59\n\5\r\5\16\5:\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\3"+
-		"\b\3\b\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\n\13I\2\20\3\2"+
-		"\2\2\4.\3\2\2\2\6\62\3\2\2\2\b8\3\2\2\2\n<\3\2\2\2\f>\3\2\2\2\16@\3\2"+
-		"\2\2\20\22\7\3\2\2\21\23\5\4\3\2\22\21\3\2\2\2\23\24\3\2\2\2\24\22\3\2"+
-		"\2\2\24\25\3\2\2\2\25\26\3\2\2\2\26\27\7\4\2\2\27\30\5\6\4\2\30\31\7\4"+
-		"\2\2\31\32\5\b\5\2\32\33\7\4\2\2\33\34\5\n\6\2\34\36\7\4\2\2\35\37\5\f"+
-		"\7\2\36\35\3\2\2\2\37 \3\2\2\2 \36\3\2\2\2 !\3\2\2\2!\"\3\2\2\2\"#\7\5"+
-		"\2\2#$\7\3\2\2$)\5\16\b\2%&\7\4\2\2&(\5\16\b\2\'%\3\2\2\2(+\3\2\2\2)\'"+
-		"\3\2\2\2)*\3\2\2\2*,\3\2\2\2+)\3\2\2\2,-\7\5\2\2-\3\3\2\2\2./\7\6\2\2"+
-		"/\60\7\n\2\2\60\5\3\2\2\2\61\63\t\2\2\2\62\61\3\2\2\2\63\64\3\2\2\2\64"+
-		"\62\3\2\2\2\64\65\3\2\2\2\65\7\3\2\2\2\669\5\6\4\2\679\7\f\2\28\66\3\2"+
-		"\2\28\67\3\2\2\29:\3\2\2\2:8\3\2\2\2:;\3\2\2\2;\t\3\2\2\2<=\5\4\3\2=\13"+
-		"\3\2\2\2>?\5\4\3\2?\r\3\2\2\2@A\5\4\3\2AB\7\7\2\2BC\5\b\5\2CD\7\b\2\2"+
-		"DE\5\4\3\2EF\7\7\2\2FG\5\b\5\2GH\7\7\2\2HI\7\t\2\2I\17\3\2\2\2\b\24 )"+
-		"\648:";
+		"\16\4\64\3\5\6\58\n\5\r\5\16\59\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3"+
+		"\b\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\4\3\2\n\13\3\2\n\fG\2\20"+
+		"\3\2\2\2\4.\3\2\2\2\6\62\3\2\2\2\b\67\3\2\2\2\n;\3\2\2\2\f=\3\2\2\2\16"+
+		"?\3\2\2\2\20\22\7\3\2\2\21\23\5\4\3\2\22\21\3\2\2\2\23\24\3\2\2\2\24\22"+
+		"\3\2\2\2\24\25\3\2\2\2\25\26\3\2\2\2\26\27\7\4\2\2\27\30\5\6\4\2\30\31"+
+		"\7\4\2\2\31\32\5\b\5\2\32\33\7\4\2\2\33\34\5\n\6\2\34\36\7\4\2\2\35\37"+
+		"\5\f\7\2\36\35\3\2\2\2\37 \3\2\2\2 \36\3\2\2\2 !\3\2\2\2!\"\3\2\2\2\""+
+		"#\7\5\2\2#$\7\3\2\2$)\5\16\b\2%&\7\4\2\2&(\5\16\b\2\'%\3\2\2\2(+\3\2\2"+
+		"\2)\'\3\2\2\2)*\3\2\2\2*,\3\2\2\2+)\3\2\2\2,-\7\5\2\2-\3\3\2\2\2./\7\6"+
+		"\2\2/\60\7\n\2\2\60\5\3\2\2\2\61\63\t\2\2\2\62\61\3\2\2\2\63\64\3\2\2"+
+		"\2\64\62\3\2\2\2\64\65\3\2\2\2\65\7\3\2\2\2\668\t\3\2\2\67\66\3\2\2\2"+
+		"89\3\2\2\29\67\3\2\2\29:\3\2\2\2:\t\3\2\2\2;<\5\4\3\2<\13\3\2\2\2=>\5"+
+		"\4\3\2>\r\3\2\2\2?@\5\4\3\2@A\7\7\2\2AB\5\b\5\2BC\7\b\2\2CD\5\4\3\2DE"+
+		"\7\7\2\2EF\5\b\5\2FG\7\7\2\2GH\7\t\2\2H\17\3\2\2\2\7\24 )\649";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

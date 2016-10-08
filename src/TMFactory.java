@@ -22,8 +22,6 @@ public class TMFactory {
 	TuringMachine tm = new TuringMachine();
 	TuringMachineBaseListener listener = new TuringMachineBaseListener(){
 
-		// Here come all the over rides for the exit methods from the TuringMachineParser
-		// to create all the objects
 
         @Override
         public void exitMachine(TuringMachineParser.MachineContext context) {
@@ -41,15 +39,45 @@ public class TMFactory {
             /*
             Input Alphabet
              */
-            Iterator it = context.inputalphabet().DIGIT().iterator();
-            while(it.hasNext()){
-                tm.inputAlphabet.add(it.next().toString());
+
+            Iterator inputAlphabetIteratorDigit = context.inputalphabet().DIGIT().iterator();
+            while(inputAlphabetIteratorDigit.hasNext()){
+                tm.inputAlphabet.add(inputAlphabetIteratorDigit.next().toString());
             }
+
+            Iterator inputAlphabetSymbolIterator = context.inputalphabet().SYMBOL().iterator();
+            while(inputAlphabetSymbolIterator.hasNext()){
+                tm.inputAlphabet.add(inputAlphabetSymbolIterator.next().toString());
+            }
+
+            /*
+            Tape Alphabet
+             */
+            Iterator tapeAlphabetIteratorDigit = context.tapealphabet().DIGIT().iterator();
+            while(tapeAlphabetIteratorDigit.hasNext()){
+                tm.tapeAlphabet.add(tapeAlphabetIteratorDigit.next().toString());
+            }
+
+            Iterator tapeAlphabetSymbolIterator = context.tapealphabet().SYMBOL().iterator();
+            while(tapeAlphabetSymbolIterator.hasNext()){
+                tm.tapeAlphabet.add(tapeAlphabetSymbolIterator.next().toString());
+            }
+
+            if(context.tapealphabet().BLANK().size() != 0){
+                tm.tapeAlphabet.add(context.tapealphabet().BLANK(0).toString());
+            }
+
+
 
             /*
             add Blank Symbol
              */
             tm.blankSymbol = context.tapealphabet().BLANK().toString();
+
+            /*
+            tape alphabet exclusive blnak
+             */
+
 
             /*
             add start state
@@ -90,11 +118,11 @@ public class TMFactory {
                  */
                 if(context.transition().get(iii).tapealphabet(0).BLANK().size()==1){
                     currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).BLANK().toString();
-                } else if (context.transition().get(iii).tapealphabet(0).inputalphabet(0).DIGIT().size()==1){
-                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).inputalphabet(0).DIGIT().toString();
+                } else if (context.transition().get(iii).tapealphabet(0).DIGIT().size()==1){
+                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).DIGIT().toString();
                 } else
                 {
-                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).inputalphabet().get(0).SYMBOL().toString();
+                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).SYMBOL().toString();
                 }
 
                 /*
@@ -109,11 +137,11 @@ public class TMFactory {
                  */
                 if(context.transition().get(iii).tapealphabet(1).BLANK().size()==1){
                     currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).BLANK().toString();
-                } else if (context.transition().get(iii).tapealphabet(1).inputalphabet(0).DIGIT().size()==1) {
-                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).inputalphabet(0).DIGIT().toString();
+                } else if (context.transition().get(iii).tapealphabet(1).DIGIT().size()==1) {
+                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).DIGIT().toString();
                 } else
                 {
-                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).inputalphabet().get(0).SYMBOL().toString();
+                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).SYMBOL().toString();
                 }
 
                 tm.addTransition(currentTransition);

@@ -8,6 +8,7 @@ public class TuringMachine{
     public List<State> states = new ArrayList<State>();
     public List<Transition> transitions = new ArrayList<Transition>();
     public List<String> inputAlphabet = new ArrayList<String>();
+    public List<String> tapeAlphabet = new ArrayList<String>();
     public String blankSymbol;
     public State startState;
     public List<State> acceptedStates = new ArrayList<State>();
@@ -59,6 +60,16 @@ public class TuringMachine{
         }
         System.out.print("\n");
     }
+
+    public void printTapeAlphabet(){
+        System.out.print("Printing the Tape Alphabet \n");
+        Iterator<String> it = tapeAlphabet.iterator();
+        while(it.hasNext()){
+            System.out.print(it.next() + " ");
+        }
+        System.out.print("\n");
+    }
+
 
     public void printAcceptedStates(){
         System.out.print("Accepted States \n");

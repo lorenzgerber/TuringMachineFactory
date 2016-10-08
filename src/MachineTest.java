@@ -10,6 +10,7 @@ public class MachineTest{
 	    m = factory.createMachine(MachineTest.class.getResourceAsStream("/PalindromeTM.txt"));
 	    m.printStates();
 		m.printInputAlphabet();
+		m.printTapeAlphabet();
 		m.printAcceptedStates();
 		m.printTransitions();
 	}catch(IOException e){

@@ -1,4 +1,4 @@
-( Q 0 Q 1 Q 2 Q 3; a b ; a b $ blank ; Q 0 ; Q 8 )
+( Q 0 Q 1 Q 2 Q 3 Q 4 Q 5 Q 6 Q 7 Q 8; a b ; a b $ blank ; Q 0 ; Q 8 )
 ( Q 0 , a -> Q 1 , $ , R
 ; Q 0 , b -> Q 2 , $ , R
 ; Q 0 , $ -> Q 8 , $ , L 
