@@ -32,6 +32,25 @@ public class TuringMachine{
 
     }
 
+    public void setInput(String input){
+
+    }
+
+    public void printConfiguration(){
+
+    }
+
+    public boolean step(){
+
+        return true;
+    }
+
+    public boolean isAcceptingConfiguration(){
+
+        return true;
+    }
+
+
     public void printInputAlphabet(){
         System.out.print("Printing the Input Alphabet \n");
         Iterator<String> it = inputAlphabet.iterator();

@@ -6,9 +6,9 @@ import org.antlr.v4.runtime.*;
 
 
 
-public class MachineFactory {
+public class TMFactory {
 
-    public TuringMachine createTuringMachine(InputStream in) throws IOException {
+    public TuringMachine createMachine(InputStream in) throws IOException {
         TuringMachineLexer l = new TuringMachineLexer(new ANTLRInputStream(in));
         TuringMachineParser p = new TuringMachineParser(new CommonTokenStream(l));
         p.addErrorListener(new BaseErrorListener() {

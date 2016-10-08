@@ -1,9 +1,3 @@
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.io.IOException;
 
 public class MachineTest{
@@ -12,8 +6,8 @@ public class MachineTest{
 	
 	TuringMachine m;
 	try{
-	    MachineFactory factory = new MachineFactory();
-	    m = factory.createTuringMachine(MachineTest.class.getResourceAsStream("/TuringMachine.tex"));
+	    TMFactory factory = new TMFactory();
+	    m = factory.createMachine(MachineTest.class.getResourceAsStream("/TuringMachine.tex"));
 	    m.printStates();
 		m.printInputAlphabet();
 		m.printAcceptedStates();
@@ -24,3 +18,4 @@ public class MachineTest{
     }
 
 }
+
