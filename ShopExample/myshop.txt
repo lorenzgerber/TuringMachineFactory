@@ -1,3 +1,0 @@
-(id25	39	red apple)
-(id12	22	green tomato)
-(id30	7	banana)
