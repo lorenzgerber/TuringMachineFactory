@@ -1,0 +1,7 @@
+( Q 0 Q 1 Q 2 Q 3; a b $ ; a b $ blank ; Q 0 ; Q 1 )
+( Q 0 , a -> Q 0 , a , R
+; Q 0 , b -> Q 0 , b , R
+; Q 0 , blank -> Q 1, $ , L
+; Q 1 , a -> Q 2 , $ , L
+; Q 2 , a -> Q 2 , a , L
+; Q 3 , 1 -> Q 2 , 0 , L )

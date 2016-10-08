@@ -7,7 +7,7 @@ public class MachineTest{
 	TuringMachine m;
 	try{
 	    TMFactory factory = new TMFactory();
-	    m = factory.createMachine(MachineTest.class.getResourceAsStream("/TuringMachine.tex"));
+	    m = factory.createMachine(MachineTest.class.getResourceAsStream("/PalindromeTM.txt"));
 	    m.printStates();
 		m.printInputAlphabet();
 		m.printAcceptedStates();
