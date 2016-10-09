@@ -103,8 +103,10 @@ public class TuringMachine{
 
 
     public boolean isAcceptingConfiguration(){
-        if(acceptedStates.contains(currentState))
-            return true;
+        for(State checkState:acceptedStates){
+            if(checkState.id == currentState)
+                return true;
+        }
         return false;
     }
 
