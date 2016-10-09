@@ -13,6 +13,8 @@ public class TuringMachine{
     public State startState;
     public List<State> acceptedStates = new ArrayList<State>();
     public List<String> tape = new ArrayList<String>();
+    public int currentPosition;
+    public int currentState;
 
     public void addTransition(Transition t){
 		transitions.add(t);
@@ -39,21 +41,71 @@ public class TuringMachine{
             // Todo: verify that input belongs to input alphabet
             tape.add(String.valueOf(input.charAt(iii)));
         }
+        currentPosition = 0;
+        currentState = startState.id;
 
     }
 
     public void printConfiguration(){
+        System.out.print("State " + currentState + "\n");
+        for(int iii = 0; iii < tape.size(); iii++){
+            System.out.print(tape.get(iii));
+        }
+        System.out.print("\n");
+        for(int iii = 0; iii < currentPosition;iii++){
+            System.out.print(" ");
+        }
+        System.out.print("^\n");
 
     }
 
     public boolean step(){
+        boolean transitionFound = false;
+        int transitionStepper = 0;
+        while (transitionStepper < transitions.size() && transitionFound == false ){
 
-        return true;
+            if(transitions.get(transitionStepper).currentState.id == currentState){
+
+                if(transitions.get(transitionStepper).readSymbol.toString() == tape.get(currentPosition)){
+                    if(transitions.get(transitionStepper).direction == "R"){
+                        /*
+                        Move right and write Symbol
+                         */
+                        tape.set(currentPosition, transitions.get(transitionStepper).writeSymbol);
+                        if (tape.size() == currentPosition){
+                            tape.add("blank");
+                        }
+                        currentPosition++;
+                        currentState = transitions.get(transitionStepper).nextState.id;
+                    } else {
+                        /*
+                        Move left and write Symbol
+                         */
+                        tape.set(currentPosition, transitions.get(transitionStepper).writeSymbol.toString());
+                        if(currentPosition > 0){
+                            currentPosition--;
+                        }
+                        currentState = transitions.get(transitionStepper).nextState.id;
+                    }
+                    return true;
+                }
+
+
+
+            }
+
+            transitionStepper++;
+        }
+
+        return false;
     }
 
-    public boolean isAcceptingConfiguration(){
 
-        return true;
+
+    public boolean isAcceptingConfiguration(){
+        if(acceptedStates.contains(currentState))
+            return true;
+        return false;
     }
 
 

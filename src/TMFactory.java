@@ -74,9 +74,6 @@ public class TMFactory {
              */
             tm.blankSymbol = context.tapealphabet().BLANK().toString();
 
-            /*
-            tape alphabet exclusive blnak
-             */
 
 
             /*
