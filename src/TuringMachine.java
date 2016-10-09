@@ -66,13 +66,13 @@ public class TuringMachine{
 
             if(transitions.get(transitionStepper).currentState.id == currentState){
 
-                if(transitions.get(transitionStepper).readSymbol.toString() == tape.get(currentPosition)){
-                    if(transitions.get(transitionStepper).direction == "R"){
+                if(transitions.get(transitionStepper).readSymbol.toString().equals(tape.get(currentPosition))){
+                    if(transitions.get(transitionStepper).direction.equals("R")){
                         /*
                         Move right and write Symbol
                          */
                         tape.set(currentPosition, transitions.get(transitionStepper).writeSymbol);
-                        if (tape.size() == currentPosition){
+                        if ((tape.size() - 1) == currentPosition){
                             tape.add("blank");
                         }
                         currentPosition++;
@@ -144,7 +144,7 @@ public class TuringMachine{
         while(it.hasNext()){
             Transition transition = it.next();
             System.out.print(transition.currentState.id + " " + transition.readSymbol + " " +
-                    transition.nextState.id + " " + transition.writeSymbol + transition.direction + "\n");
+                    transition.nextState.id + " " + transition.writeSymbol + " " + transition.direction + "\n");
         }
         System.out.print("\n");
     }

@@ -114,12 +114,12 @@ public class TMFactory {
                 add "read sybmol" in Transition
                  */
                 if(context.transition().get(iii).tapealphabet(0).BLANK().size()==1){
-                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).BLANK().toString();
+                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).BLANK(0).getSymbol().getText();
                 } else if (context.transition().get(iii).tapealphabet(0).DIGIT().size()==1){
-                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).DIGIT().toString();
+                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).DIGIT(0).getSymbol().getText();
                 } else
                 {
-                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).SYMBOL().toString();
+                    currentTransition.readSymbol = context.transition().get(iii).tapealphabet(0).SYMBOL(0).getSymbol().getText();
                 }
 
                 /*
@@ -133,12 +133,12 @@ public class TMFactory {
                 add "write symbol" in Transition
                  */
                 if(context.transition().get(iii).tapealphabet(1).BLANK().size()==1){
-                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).BLANK().toString();
+                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).BLANK(0).getSymbol().getText();
                 } else if (context.transition().get(iii).tapealphabet(1).DIGIT().size()==1) {
-                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).DIGIT().toString();
+                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).DIGIT(0).getSymbol().getText();
                 } else
                 {
-                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).SYMBOL().toString();
+                    currentTransition.writeSymbol = context.transition().get(iii).tapealphabet(1).SYMBOL(0).getSymbol().getText();
                 }
 
                 tm.addTransition(currentTransition);
