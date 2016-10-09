@@ -24,17 +24,6 @@ public class TuringMachine{
         states.add(s);
     }
 
-    public void printStates(){
-        System.out.print("Printing the States \n");
-
-        Iterator<State> it = states.iterator();
-        while(it.hasNext()){
-            State state = it.next();
-            System.out.print(state.id + " ");
-        }
-        System.out.print("\n");
-
-    }
 
     public void setInput(String input){
         for (int iii = 0; iii < input.length(); iii++){
@@ -110,45 +99,61 @@ public class TuringMachine{
         return false;
     }
 
+    @Override
+    public String toString(){
+        String empty = "Turing Machine\n--------------\n\n";
+        StringBuilder sb = new StringBuilder(empty);
 
-    public void printInputAlphabet(){
-        System.out.print("Printing the Input Alphabet \n");
-        Iterator<String> it = inputAlphabet.iterator();
-        while(it.hasNext()){
-            System.out.print(it.next() + " ");
+        sb.append("States \n");
+        Iterator<State> statesIterator = states.iterator();
+        while(statesIterator.hasNext()){
+            State state = statesIterator.next();
+            sb.append(state.id + " ");
         }
-        System.out.print("\n");
-    }
+        sb.append("\n\n");
 
-    public void printTapeAlphabet(){
-        System.out.print("Printing the Tape Alphabet \n");
-        Iterator<String> it = tapeAlphabet.iterator();
-        while(it.hasNext()){
-            System.out.print(it.next() + " ");
+
+        sb.append("Input Alphabet \n");
+        Iterator<String> inputAlphabetIterator = inputAlphabet.iterator();
+        while(inputAlphabetIterator.hasNext()){
+            sb.append(inputAlphabetIterator.next() + " ");
         }
-        System.out.print("\n");
-    }
+        sb.append("\n\n");
 
-
-    public void printAcceptedStates(){
-        System.out.print("Accepted States \n");
-        Iterator<State> it = acceptedStates.iterator();
-        while(it.hasNext()){
-            State state = it.next();
-            System.out.print(state.id + " ");
+        sb.append("Tape Alphabet \n");
+        Iterator<String> tapeAlphabetIterator = tapeAlphabet.iterator();
+        while(tapeAlphabetIterator.hasNext()){
+            sb.append(tapeAlphabetIterator.next() + " ");
         }
-        System.out.print("\n");
-    }
+        sb.append("\n\n");
 
-    public void printTransitions(){
-        System.out.print("Transitions \n");
+        sb.append("Start State \n");
+        sb.append(startState.id + "\n\n");
+
+        sb.append("Accepted States \n");
+        Iterator<State> acceptedStatesIterator = acceptedStates.iterator();
+        while(acceptedStatesIterator.hasNext()){
+            State state = acceptedStatesIterator.next();
+            sb.append(state.id + " ");
+        }
+        sb.append("\n\n");
+
+        sb.append("Transitions \n");
         Iterator<Transition> it = transitions.iterator();
         while(it.hasNext()){
             Transition transition = it.next();
-            System.out.print(transition.currentState.id + " " + transition.readSymbol + " " +
-                    transition.nextState.id + " " + transition.writeSymbol + " " + transition.direction + "\n");
+            sb.append(transition.currentState.id + " " + transition.readSymbol + " -> " +
+                    transition.nextState.id + " " + transition.writeSymbol + ", " + transition.direction + "\n");
         }
-        System.out.print("\n");
+        sb.append("--------------\n\n");
+
+
+
+
+
+
+
+        return(sb.toString());
     }
 
 
