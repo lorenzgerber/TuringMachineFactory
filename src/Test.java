@@ -12,7 +12,7 @@ public class Test{
         }
         TuringMachine m = new TuringMachine();
         try{
-            TMFactory factory = new TMFactory();
+            MachineFactory factory = new MachineFactory();
             m = factory.createMachine(Test.class.getResourceAsStream("PalindromeTM.txt"));
         }catch(IOException e){
             System.err.println(e.toString());

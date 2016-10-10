@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.*;
 
 
 
-public class TMFactory {
+public class MachineFactory {
 
     public TuringMachine createMachine(InputStream in) throws IOException {
         TuringMachineLexer l = new TuringMachineLexer(new ANTLRInputStream(in));
