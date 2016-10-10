@@ -1,7 +1,8 @@
-( Q 0 Q 1 Q 2 Q 3 Q 4 Q 5 Q 6 Q 7 Q 8 Q 9 Q 10; a b ; a b $ blank ; Q 0 ; Q 10 )
-( Q 0 , a -> Q 1 , $ , R
-; Q 0 , b -> Q 2 , $ , R
-; Q 0 , $ -> Q 10 , $ , L 
+( Q 0 Q 1 Q 2 Q 3 Q 4 Q 5 Q 6 Q 7 Q 8 Q 9 Q 10 Q 11; a b ; a b S $ blank ; Q 0 ; Q 11 )
+( Q 0 , a -> Q 1 , S , R
+; Q 0 , b -> Q 2 , S , R
+
+
 
 ; Q 1 , a -> Q 1 , a , R
 ; Q 1 , b -> Q 1 , b , R
@@ -19,19 +20,24 @@
 
 ; Q 5 , a -> Q 6 , $ , L
 ; Q 5 , b -> Q 7 , $ , L
-; Q 5 , $ -> Q 10 , $ , L
+; Q 5 , $ -> Q 11 , $ , L
 
 ; Q 6 , a -> Q 6 , a , L
 ; Q 6 , b -> Q 6 , b , L
 ; Q 6 , $ -> Q 8 , $ , R
+; Q 6 , S -> Q 8 , S , R
 
 ; Q 7 , a -> Q 7 , a , L
 ; Q 7 , b -> Q 7 , b , L
 ; Q 7 , $ -> Q 9 , $ , R
 
-; Q 8 , a -> Q 0 , $ , R
+; Q 8 , a -> Q 10 , $ , R
 
-; Q 9 , b -> Q 0 , $ , R
+; Q 9 , b -> Q 10 , $ , R
 
-; Q 10 , $ -> Q 10 , $ , L
+; Q 10 , a -> Q 1 , $ , R
+; Q 10 , b -> Q 2 , $ , R
+; Q 10 , $ -> Q 11 , $ , L
+
+; Q 11 , $ -> Q 11 , $ , L
 )
